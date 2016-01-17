@@ -28,7 +28,6 @@ def checkforquit(): #checks for if x is clicked
             pygame.quit()
             exit(0)
 def main():
-    #declare all the variables
     pygame.init()
     screen = pygame.display.set_mode((640,480))
     playerpos=[25,25]
@@ -39,7 +38,6 @@ def main():
     player = pygame.image.load("/home/ben/Desktop/Resources/tealcar.png")
     track = pygame.image.load("/home/ben/Desktop/Resources/track.png")
     gameover = pygame.image.load("/home/ben/Desktop/Resources/gameover.png")
-    #start of loop
     while 1:
         checkforquit()
         while (alive == 0):
@@ -85,6 +83,6 @@ def main():
                             screen.blit(gameover,(0,0))
                             pygame.display.flip()
                             playerpos = [25,25]
-                            lap = 1
-                            time.sleep(1)
+                            time.sleep(3)
+                            exit(0)
 main()
