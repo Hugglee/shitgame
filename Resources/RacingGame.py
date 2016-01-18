@@ -1,14 +1,16 @@
 import pygame
 import time
+import os
 from pygame.locals import *
 
 pygame.init()
 screen = pygame.display.set_mode((640,480))
     
 def menu(screen):
+    os.path.realpath(__file__)
     pygame.display.set_caption("Menu")
-    go = pygame.image.load("/home/ben/Desktop/Resources/go.png")
-    quitt = pygame.image.load("/home/ben/Desktop/Resources/quit.png")
+    go = pygame.image.load(os.path.realpath("go.png"))
+    quitt = pygame.image.load(os.path.realpath("quit.png"))
     screen.blit(go, (0,0))
     pygame.display.flip()
     while 1:
@@ -27,7 +29,7 @@ def menu(screen):
                 if event.type == pygame.MOUSEBUTTONUP:
                     exit(0)
 def checkforgameover1(playerpos, screen):
-    wins2 = pygame.image.load("/home/ben/Desktop/Resources/2wins.png")
+    wins2 = pygame.image.load(os.path.realpath("2wins.png"))
     if playerpos[0] < 515:
         if playerpos[0] > 75:
             if playerpos[1] > 75:
@@ -38,7 +40,7 @@ def checkforgameover1(playerpos, screen):
                     time.sleep(3)
                     menu(screen)
 def checkforgameover2(player2pos, screen):
-    wins1 = pygame.image.load("/home/ben/Desktop/Resources/1wins.png")
+    wins1 = pygame.image.load(os.path.realpath("1wins.png"))
     if player2pos[0] < 515:
         if player2pos[0] > 75:
             if player2pos[1] > 75:
@@ -99,9 +101,9 @@ def main(screen):
     keys2 = [False, False, False, False]
     lap = 1
     lap2 = 1
-    player = pygame.image.load("/home/ben/Desktop/Resources/tealcar.png")
-    player2 = pygame.image.load("/home/ben/Desktop/Resources/yellowcar.png")
-    track = pygame.image.load("/home/ben/Desktop/Resources/track.png")
+    player = pygame.image.load(os.path.realpath("tealcar.png"))
+    player2 = pygame.image.load(os.path.realpath("yellowcar.png"))
+    track = pygame.image.load(os.path.realpath("track.png"))
     while 1:
         checkforquit()
         while 1:
